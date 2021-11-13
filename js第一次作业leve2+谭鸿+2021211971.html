@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    // 第一个
+    var put=prompt('请输入一个数字');
+    var score=Number(put);
+    var w=isNaN(score);
+    while(w==true)
+    {
+        alert('未输入数字，请重新输入');
+        var put=prompt('请输入一个数字');
+        var score=Number(put);
+        var w=isNaN(score);
+    }
+    var m=score*score;
+    alert('输入数字平方为'+m);
+
+    //  第二个
+    var arr5 = [1, [2, 3], 4, [5, [6, [7, 8]]],[9, 10]];
+   
+   function fun1(arr5) 
+   {
+    var res = [];
+     for(var i=0;i<=arr5.length;i++)
+     {
+         if(Array.isArray(arr5[i]))
+         {
+             res=res.concat(fun1(arr5[i]));
+         }
+         else
+         {
+              res.push(arr5[i]);
+         }
+     }
+     return res;
+    }
+
+    fun1(arr5);
+    console.log(fun1(arr5)); 
+
+    // 第三个
+
+
+    var arr6=[{name:'xiaoming',age:18},{name:'zhangsan',age:34},
+         {name:'lisi',age:29},{name:'wangwu',age:24}];
+
+    function sortby(key , way = true){
+       return function(a,b){
+           var value1=a[key]
+           var value2=b[key]
+           return value1-value2;
+       }
+    }
+
+    console.log(arr6.sort(sortby('age'))) 
+    // console.log(arr.sort(sortby('name',false))) 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
