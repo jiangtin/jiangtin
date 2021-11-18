@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script type="text/javascript">
+
+var data = {
+              age: 18,
+              name: "这是真的难",
+              education: ["小学", "初中", "高中", "大学", undefined, null],
+              friends: [
+                    { name: "Amber",sex: "woman"},
+                    { name: "Barbara",sex: "woman"},
+                    { name: "Venti",sex: "man"}], 
+              work: { 
+                      time: "2021", 
+                      project: { name: "test",obtain: ["css", "html", "js"]} 
+                    }, 
+              play: function() {    console.log("玩滑板");  }
+          }
+
+var data1={};
+function deepcope(newobj,oldobj){
+for(var k in oldobj){
+var item=oldobj[k];
+if(item instanceof Array)  //数组
+{
+    newobj[k]=[];
+    deepcope(newobj[k],item);
+}
+else if(item instanceof object) //对象
+{
+    newobj[k]={};
+    deepcope(newobj[k],item);
+}
+else{
+    newobj[k]=item;
+}
+}
+}
+deepcope(data,data1);
+console.log(data); 
+console.log(data1); 
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>
