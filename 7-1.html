@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let str = "I'm?���going�??�to�?�take�??�a?�trip�?�to��?daocheng�?�on��May Day."
+       
+       var m=/d/
+        var s=str.replace(m,'D');
+        
+        var m2=/I'm/
+        var m1=s.match(m2)[0];
+        var a=/going/
+        var a1=s.match(a)[0];
+        var b=/to/
+        var b1=s.match(b)[0];
+        var c=/take/
+        var c1=s.match(c)[0];
+        var d=/a/
+        var d1=s.match(d)[0];
+        var e=/trip/
+        var e1=s.match(e)[0];
+        var f=/Daocheng/
+        var f1=s.match(f)[0];
+        var g=/on/
+        var g1=s.match(g)[0];
+        var h=/May/
+        var h1=s.match(h)[0];
+        var i=/Day./
+        var i1=s.match(i)[0];
+console.log(s);
+console.log(m1+' '+a1+' ' +b1+' ' +c1 +' '+d1+' ' +e1+' ' +b1+' ' +f1+' ' +g1+' ' +h1+' ' +i+' ' ); 
+// 'I'm going to take a ptri to Daocheng on May Day.'
+      /* var m=/d/
+        var s=str.replace(m,'D');
+        a=/^[A-Za-z]+$/
+        var a1=s.match(a);
+        console.log(a1);*/
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
