@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <title>Document</title>
+  <script src="echarts.js"></script>
+<style>
+
+  #one{
+    width: 600px;
+    height: 25px;
+    text-align: center;
+    font-size: 17px;
+    color: white;
+  display: flex;
+  }
+  #two{
+    display: flex;
+    width: 600px;
+    margin-top: 15px;
+  }
+  #two1{
+height: 40px;width: 138px;
+background-color: #5f7791;color: white;
+line-height: 40px;text-align: center;
+border-radius: 20px;
+margin-left: 20px;
+  }
+  #two2{
+height: 40px;width: 138px;
+background-color: #5f7791;color: white;
+line-height: 40px;text-align: center;
+border-radius: 20px;
+margin-left: 280px;
+  }
+  #three{
+    height: 70px;width: 600px;
+    background-color: rgb(92, 158, 235);
+  }
+  #w5{
+    width: 600px;height: 110px;font-size: 90px;background-color: rgb(92, 158, 235);
+    background-image: url(building.png);
+  }
+  div{
+    color:white;font-size: 15px;
+  }
+  #t71,#t72{
+    width: 40px;border-radius: 15px;
+    height: 20px;text-align: center;
+    background-color: rgb(218, 198, 14);
+    margin-left: 5px;
+}
+#w71,#w72{margin-left: 170px;}
+#p71{margin-left: 220px;}
+#p72{margin-left: 230px;}
+.a9{
+  width: 100px;
+  height: 90px;
+}
+.a90,.a91,.a92{
+  width: 100px;height: 30px;
+  text-align: center;
+}
+.a11{
+      width: 100px;
+      height: 120px;
+  }
+  .b11,.b12{
+      text-align: center;
+      height: 30px;
+      width: 100px;
+  }
+  .b11_41,.b11_42{
+      width: 100px;height: 15px;text-align: center;
+  }
+  .b11_3{
+    width: 40px;border-radius: 15px;
+    height: 20px;text-align: center;
+    background-color: rgb(218, 198, 14);margin-left: 30px;
+  }
+  ul{
+            width: 600px;padding: 0px;margin: 0px;display: block;
+        }
+        li{
+            display: block;width: 160px;height: 35px;border: darkgrey solid 1px;background-color: white;color: rgb(34, 33, 33); text-align: center;line-height: 35px;border-radius: 10px;float: left;margin-left: 20px;margin-top: 10px;
+        }
+dd{
+    display: block;margin: 0px;
+}
+.last{
+            width: 198px;height: 120px;border:rgb(75, 133, 156) solid 1px;;
+        }
+        .last_p{width: 198px;height: 40px;margin-top: 30px;text-align: center;}
+        .last_w{
+            width: 198px;height: 20px;text-align: center;
+        }
+</style>
+</head>
+<body >
+<div style="width: 100%px;height: 1000px;">
+<!-- 搜索页面 -->
+<div id="sousuo" style=" visibility: hidden;position: absolute;width: 600px;height: 1000px;background-color: #f2f7f7;color: #999595;padding-top: 20px;">
+  <div style=" width: 600px;height: 45px;display: flex;">
+      <div id="city_btn" style="height: 40px;width: 40px;text-align: center;line-height: 60px;"><img src="左箭头.png" width="30px" height="30px" id="return"></div>
+      <div style="height: 40px;"><input type="text" placeholder="请输入城市名" style="width: 500px;height: 40px;" id="text"></div>
+      <button>确定</button>
+  </div>
+  <div style="height: 40px;width: 600px;line-height: 40px;font-size: 15px;color: #999595;">
+当前城市
+  </div>
+  <div style="width: 600px;height: 50px;">
+      <ul>
+          <li id="now_city">重庆市</li>
+      </ul>
+  </div> 
+              <div style="height: 40px;width: 570px;line-height: 40px;font-size: 15px;color: #999595;">热搜城市 </div>
+      <div style="width: 600px;height: 150px;">
+          <ul>
+              <li class="fire_city">北京市</li>
+              <li class="fire_city">上海市</li>
+              <li class="fire_city">广州市</li>
+              <li class="fire_city">深圳市</li>
+              <li class="fire_city">杭州市</li>
+              <li class="fire_city">沈阳市</li>
+              <li class="fire_city">大连市</li>
+          </ul>
+      </div>
+    
+  <dl>
+    <dt>
+        <div style="display: flex;margin-top: 10px;">
+            <div style="height: 40px;width: 570px;line-height: 40px;font-size: 15px;color: #999595;">添加记录 </div>
+            <div style="height: 40px;width: 30px;line-height: 40px;font-size: 15px;color: #999595;" id="shanchu">删除</div>
+        </div>
+    </dt>
+    <dd>
+        <ul id="citys"></ul>
+    </dd>
+</dl>   
+  </div>
+  <div  style="width: 600px;background-color: rgb(92, 158, 235);">
+      <!-- 11111 -->
+<div id="one">
+  <img id="btn_one" src="加号(1).png"  style="vertical-align: middle;margin-left: 260px;"> <div id="city" style=" height: 25px;width: 60px;">重庆市</div> 
+</div>
+<!-- 22222 -->
+<div id="two">
+  <div id="two1">
+    <img src="2.png" style="vertical-align: middle;">
+    &nbsp &nbsp 疫情资讯
+    </div>
+    <div id="two2">
+      <img src="1.png" style="vertical-align: middle;">
+      &nbsp &nbsp安全出行
+    </div>
+</div>
+<!-- 33333 -->
+<div id="three"></div>
+<!-- 44444 -->
+<div style="width: 600px; height: 30px;font-size: 20px;" id="n4">阴</div>
+<!-- 55555 -->
+<div  id="w5">11°</div>  
+  </div>
+<div  style="width: 600px;background-color: rgb(35, 83, 172);">
+<!--666666  -->
+<div style="width: 600px;display: flex;height: 40px;">
+  <div >
+    <div id="wind"> 西北风2级 湿度40%</div> 
+    <div>舒适</div>
+  </div>
+  <div style="display: flex;background-color: #32446b;width: 80px;height: 33px;border-radius: 20px;margin-top: 3px;margin-left: 425px;">
+    <div style="background-color: rgb(218, 198, 14);margin-left: 10px; vertical-align: middle;height: 30px;width: 30px;border-radius: 20px;text-align: center;line-height: 35px;">
+      <img src="2 (1).png" width="20px" height="20px"></div>
+    <div style="margin-top: 6px;margin-left: 5px;" id="shidu">70 </div>
+  </div>
+  </div>
+  <!-- 777777 -->
+  <div style="display: flex;width: 600px;height: 60px;">
+  <!-- 7-1 -->
+  <div style="width: 300px;border: solid 1.5px rgb(66, 109, 190);">
+  <div style="display: flex;height: 30px;width: 300px;padding-top: 5px;">
+  <div>今天</div>
+  <div id="t71">良</div>
+  <div id="w71">5/16°</div>
+  </div>
+  <div style="display: flex;height: 30px;width: 300px;">
+  <div id="w711">晴</div>
+  <div id="p71"><img src=""  id="p711"></div>
+  </div>
+  </div>
+  <!-- 7-2 -->
+  <div style="width: 295px;border: solid 1.5px rgb(66, 109, 190);">
+  <div style="display: flex;height: 30px;width: 295px;padding-top: 5px;">
+    <div>明天</div>
+    <div id="t72">良</div>
+    <div id="w72">6/17°</div>    
+        </div>
+        <div style="display: flex;height: 30px;width: 295px;">
+    <div id="w722">多云</div>
+   <div id="p72"><img src=""  id="p722"></div> 
+        </div></div></div>
+  <!-- 88888 -->
+  <div style="height: 25px;width: 600px;display: flex;background-color: rgb(66, 109, 190);">
+  <div>日落&nbsp;</div>
+  <div id="sunset">17:58</div>
+  <div style="margin-left: 440px;">24小时<img src="下箭头.png" width="25px" height="25px" style="vertical-align: middle;"></div>
+  </div>
+  <!-- 99999 -->
+  <div style="width: 600px;height: 90px;display: flex; ">
+  <div class="a9">
+  <div class="a90">周一</div>
+  <div class="a91" >阴</div>
+  <div class="a92"><img src="" class="p94" ></div>
+  </div>
+  <div class="a9">
+  <div class="a90">周二</div>
+  <div class="a91">阴</div>
+  <div class="a92"><img src="" class="p94"></div>
+  </div>
+  <div class="a9">
+  <div class="a90">周三</div>
+  <div class="a91">阴</div>
+  <div class="a92"><img src="" class="p94"></div>
+  </div>
+  <div class="a9">
+  <div class="a90">周四</div>
+  <div class="a91">阴</div>
+  <div class="a92"><img src="" class="p94"></div>
+  </div>
+  <div class="a9">
+  <div class="a90" >周五</div>
+  <div class="a91">阴</div>
+  <div class="a92"><img src="" class="p94"></div>
+  </div>
+  <div class="a9">
+  <div class="a90">周六</div>
+  <div class="a91">阴</div>
+  <div class="a92"><img src="" class="p94"></div></div></div>
+  <!-- 10  10 -->
+  <div id="main" style="width: 600px;height:100px;"></div>
+  <!-- 11 -->
+  <div style="display: flex;height: 140px;width: 600px;">
+  <div class="a11">
+      <div class="b11"> <img src="" class="p95"></div>
+      <div class="b12">晴</div>
+      <div class="b11">
+          <div class="b11_3">良</div>
+      </div>
+      <div class="b11_41">东北风</div>
+      <div class="b11_42">1级</div>
+  </div>
+  <div class="a11">
+      <div class="b11"> <img src="" class="p95"></div>
+      <div class="b12">晴</div>
+      <div class="b11">
+          <div class="b11_3">良</div>
+      </div>
+      <div class="b11_41">东北风</div>
+      <div class="b11_42">1级</div>
+  </div>
+  <div class="a11">
+      <div class="b11"> <img src="" class="p95"></div>
+      <div class="b12">晴</div>
+      <div class="b11">
+          <div class="b11_3">良</div>
+      </div>
+      <div class="b11_41">东北风</div>
+      <div class="b11_42">1级</div>
+  </div>
+  <div class="a11">
+      <div class="b11"> <img src="" class="p95"></div>
+      <div class="b12">晴</div>
+      <div class="b11">
+          <div class="b11_3">良</div>
+      </div>
+      <div class="b11_41">东北风</div>
+      <div class="b11_42">1级</div>
+  </div>
+  <div class="a11">
+      <div class="b11"> <img src="" class="p95"></div>
+      <div class="b12">晴</div>
+      <div class="b11">
+          <div class="b11_3">良</div>
+      </div>
+      <div class="b11_41">东北风</div>
+      <div class="b11_42">1级</div>
+  </div>
+  <div class="a11">
+      <div class="b11"> <img src="" class="p95"></div>
+      <div class="b12">晴</div>
+      <div class="b11">
+          <div class="b11_3">良</div>
+      </div>
+      <div class="b11_41">东北风</div>
+      <div class="b11_42">1级</div>
+  </div>
+  </div>
+  <!-- last but not list -->
+  <div style="width: 600px;">
+    <div style="width: 600px;height: 120px;display: flex;">
+    <div class="last">
+        <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+        <div class="last_w"> </div>
+    </div>
+    <div class="last">
+        <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+        <div class="last_w"> </div>
+    </div>
+    <div class="last">
+        <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+        <div class="last_w"> </div>
+    </div>
+    </div>
+    <div style="width: 600px;height: 120px;display: flex;">
+        <div class="last">
+            <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+            <div class="last_w"> </div>
+        </div>
+        <div class="last">
+            <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+            <div class="last_w"> </div>
+        </div>
+        <div class="last">
+            <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+            <div class="last_w"> </div>
+        </div>
+        </div>
+        <div style="width: 600px;height: 120px;display: flex;">
+            <div class="last">
+                <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                <div class="last_w"> </div>
+            </div>
+            <div class="last">
+                <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                <div class="last_w"> </div>
+            </div>
+            <div class="last">
+                <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                <div class="last_w"> </div>
+            </div>
+            </div>
+            <div style="width: 600px;height: 120px;display: flex;">
+                <div class="last">
+                    <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                    <div class="last_w"> </div>
+                </div>
+                <div class="last">
+                    <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                    <div class="last_w"> </div>
+                </div>
+                <div class="last">
+                    <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                    <div class="last_w"> </div>
+                </div>
+                </div>
+                <div style="width: 600px;height: 120px;display: flex;">
+                    <div class="last">
+                        <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                        <div class="last_w"> </div>
+                    </div>
+                    <div class="last">
+                        <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                        <div class="last_w"> </div>
+                    </div>
+                    <div class="last">
+                        <div class="last_p"><img src="star.png" width="40px" height="40px"> </div>
+                        <div class="last_w"> </div>
+                    </div>
+                    </div>
+  </div>
+  
+</div>
+
+</div>
+<script src="sousuo.js"></script>
+<script src="all.js"></script>
+
+</body>
+</html>
