@@ -144,7 +144,6 @@ function change(){
        const n4=document.getElementById('n4');
        const w5=document.getElementById('w5');
        const wind=document.getElementById('wind');
-       const shidu=document.getElementById('shidu');
        
     xhr2.open('GET','https://devapi.qweather.com/v7/weather/now?location='+city_id+'&key=9ef4a7e0a3f24541b8e7b5617a9a1ec1');
     xhr2.send();
@@ -156,7 +155,6 @@ function change(){
               n4.innerText=obj2.now.text;
               w5.innerText=obj2.now.temp+"°";
               wind.innerText=obj2.now.windDir+obj2.now.windScale+'级';
-              shidu.innerText=obj2.now.humidity;
 
                }
             }
@@ -181,11 +179,52 @@ function change(){
                       console.log('wrong');
                       }
                      
-                  }
-   
-   
+                    }
                }
-            }
+               function colorc( a,b){
+                if(a<50){
+                  b.style.backgroundColor="rgb(66, 180, 94)";
+                }
+                if(a<100&&a>50){
+                  b.style.backgroundColor="rgb(218, 198, 14)";
+                }
+                if(a<150&&a>100){
+                  b.style.backgroundColor="rgb(236, 144, 144)";
+                }
+                if(a<200&&a>150){
+                  b.style.backgroundColor="rgb(163, 58, 58)";
+                }
+                if(a<300&&a>200){
+                  b.style.backgroundColor="rgb(110, 31, 31)";
+                }
+                };
+        
+        
+
+               const xhr4=new XMLHttpRequest();
+               const air1=document.getElementById('air1');
+               const coor1=document.getElementById('color1');
+               const t71=document.getElementById('t71');
+               xhr4.open('GET','https://devapi.qweather.com/v7/air/now?location='+city_id+'&key=9ef4a7e0a3f24541b8e7b5617a9a1ec1');
+               xhr4.send();
+               xhr4.onreadystatechange=function(){
+                   if(xhr4.readyState===4){
+                       if(xhr4.status>=200&&xhr4.status<300){
+                           var obj4=JSON.parse(xhr4.response)
+                           console.log(obj4);  
+                          air1.innerHTML=obj4.now.aqi+'&nbsp'+obj4.now.category;
+                          t71.innerHTML=obj4.now.category;
+
+                          colorc(obj4.now.aqi,color1);
+                          colorc(obj4.now.aqi,t71);
+
+                          }
+                       }
+                       else{
+                       console.log('wrong');
+                       } }
+              
+              }
             else{
             console.log('wrong');
             }  
