@@ -203,8 +203,10 @@ function change(){
 
                const xhr4=new XMLHttpRequest();
                const air1=document.getElementById('air1');
-               const coor1=document.getElementById('color1');
+               const color1=document.getElementById('color1');
                const t71=document.getElementById('t71');
+               const air2=document.getElementById('air2');
+
                xhr4.open('GET','https://devapi.qweather.com/v7/air/now?location='+city_id+'&key=9ef4a7e0a3f24541b8e7b5617a9a1ec1');
                xhr4.send();
                xhr4.onreadystatechange=function(){
@@ -214,9 +216,12 @@ function change(){
                            console.log(obj4);  
                           air1.innerHTML=obj4.now.aqi+'&nbsp'+obj4.now.category;
                           t71.innerHTML=obj4.now.category;
-
+                          air2.innerHTML=obj4.now.category;
+                           
                           colorc(obj4.now.aqi,color1);
                           colorc(obj4.now.aqi,t71);
+                          colorc(obj4.now.aqi,air2);
+
 
                           }
                        }
