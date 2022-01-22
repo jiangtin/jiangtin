@@ -113,7 +113,7 @@ function change(){
    // 
    {
      data: [min[0][0], min[1][0], min[2][0], min[3][0], min[4][0],min[5][0]],
-     type: 'line',
+     type: 'line',symbol:'circle',SymbolSize:5,color:"white",
      lineStyle:{
        normal:{
    color:'white',
